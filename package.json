@@ -1,0 +1,21 @@
+{
+  "name": "roundtable-testcontainers",
+  "version": "1.0.0",
+  "description": "Project created to discuss about testcontainers in testing in a chingu roundtable",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "express",
+    "jest",
+    "testcontainers",
+    "test"
+  ],
+  "author": "Andres Court",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
