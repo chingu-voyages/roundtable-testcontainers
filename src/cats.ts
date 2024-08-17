@@ -35,8 +35,5 @@ export async function insertCat(req: Request, res: Response) {
   if (!createdCat) {
     return res.status(500).json({ error: "Failed to create cat" });
   }
-
-  console.log("createdCat", createdCat);
-
   res.status(201).json(createdCat);
 }
