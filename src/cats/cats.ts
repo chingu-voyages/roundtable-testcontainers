@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Cat } from "./types/cat";
-import { getCats, newCat } from "./database";
+import { Cat } from "../types/cat";
+import { getCats, newCat } from "../db/database";
 
 export async function getAllCats(_req: Request, res: Response) {
   const allCats: Cat[] = await getCats();

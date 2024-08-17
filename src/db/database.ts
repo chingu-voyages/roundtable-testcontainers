@@ -1,5 +1,5 @@
 import { Client, QueryResult } from "pg";
-import { Cat } from "./types/cat";
+import { Cat } from "../types/cat";
 
 export let client: Client | undefined;
 
@@ -10,7 +10,6 @@ export function createClient(
   password: string,
   database: string,
 ) {
-  console.log("createClient", host, port, user, password, database);
   client = new Client({
     host,
     port,

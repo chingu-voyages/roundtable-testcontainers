@@ -1,5 +1,5 @@
 import request from "supertest";
-import { app } from ".";
+import { app, server } from "..";
 import { Client } from "pg";
 
 jest.mock("pg", () => {
@@ -14,6 +14,9 @@ jest.mock("pg", () => {
 
 describe("Cats", () => {
   const client: Client = new Client();
+  afterAll(() => {
+    server.close();
+  });
 
   describe("POST /cats", () => {
     describe("data validation", () => {
