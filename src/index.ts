@@ -3,10 +3,11 @@ import type { Request, Response } from "express";
 import { environment } from "./env";
 import { getAllCats, insertCat } from "./cats";
 
+export const app = express();
+
 function startServer() {
   console.log("Starting server...");
   try {
-    const app = express();
     app.use(express.json());
 
     app.get("/", (_req: Request, res: Response) => {
