@@ -1,13 +1,14 @@
 import { Request, Response } from "express";
 import { Cat } from "./types/cat";
+import { getCats, newCat } from "./database";
 
-export function getAllCats(req: Request, res: Response) {
-  const allCats: Cat[] = [];
+export async function getAllCats(_req: Request, res: Response) {
+  const allCats: Cat[] = await getCats();
 
   res.status(200).json(allCats);
 }
 
-export function insertCat(req: Request, res: Response) {
+export async function insertCat(req: Request, res: Response) {
   const { name, breed, age } = req.body;
 
   if (!name) {
@@ -24,10 +25,18 @@ export function insertCat(req: Request, res: Response) {
     return res.status(400).json({ error: "Age must be a number" });
   }
 
-  res.status(201).json({
-    id: 1,
+  const c: Cat = {
     name,
     breed,
     age: parseInt(age, 10),
-  });
+  };
+
+  const createdCat = await newCat(c);
+  if (!createdCat) {
+    return res.status(500).json({ error: "Failed to create cat" });
+  }
+
+  console.log("createdCat", createdCat);
+
+  res.status(201).json(createdCat);
 }
