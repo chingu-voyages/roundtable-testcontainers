@@ -1,4 +1,3 @@
-<!--TODO: review readme-->
 # roundtable-testcontainers
 
 Roundtable: All about Testcontainers
@@ -40,6 +39,22 @@ cd roundtable-testcontainers
 npm install
 ```
 
+### Environment variables
+
+In order for this project to work, you will need to set some environment variables.
+
+```.env
+PORT=<port number>
+
+DB_USERNAME=<database username>
+DB_PASSWORD=<database password>
+DB_HOST=<database host>
+DB_PORT=<database port>
+DB_NAME=<database name>
+```
+
+### Running the project
+
 Once the project is installed, you can run the following command to start the server:
 
 ```bash
@@ -52,7 +67,6 @@ npm start
 In order for this project be able to work as a resource for the Chingu community, the project will have the following branches:
 
 1. **main** - The plain version of the project
-2. **rhf** - The version of the project using React Hook Form
 
 ## Resources
 
